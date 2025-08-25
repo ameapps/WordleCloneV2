@@ -1,11 +1,11 @@
 export async function getSecretWord(currentLang) {
     try {
-        const langFiles = {
-            en: 'assets/en.json',
-            it: 'assets/it.json',
-            gr: 'assets/gr.json'
+        const dictFiles = {
+            en: 'assets/dictionaries/en.json',
+            it: 'assets/dictionaries/it.json',
+            gr: 'assets/dictionaries/gr.json'
         };
-        const langFile = langFiles[currentLang] || langFiles['en'];
+        const langFile = dictFiles[currentLang] || dictFiles['en'];
         const response = await fetch(langFile);
         if (!response.ok) throw new Error('Impossibile caricare il file delle parole');
         const data = await response.json();

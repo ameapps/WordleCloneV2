@@ -1,0 +1,9 @@
+{
+    "TITLE": "Wordle Clone V2",
+    "DESCRIPTION": "A simple word guessing game inspired by Wordle.",
+    "NEW_MATCH": "New Match",
+    "LANG": "Language",
+    "WIN": "🎉 Congratulations! You guessed it!",
+    "LOSE": "❌ You lost. The word was: solution",
+    "NOTFOUND": "❌ Word not in English dictionary."
+}

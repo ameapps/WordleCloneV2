@@ -1,0 +1,9 @@
+{
+    "TITLE": "Clone di Wordle V2",
+    "DESCRIPTION": "Un semplice gioco di parole ispirato a Wordle.",
+    "NEW_MATCH": "Nuova Partita",
+    "LANG": "Lingua",
+    "WIN": "🎉 Complimenti! Hai indovinato!",
+    "LOSE": "❌ Hai perso. La parola era: soluzione",
+    "NOTFOUND": "❌ Parola non presente nel dizionario italiano."
+}
