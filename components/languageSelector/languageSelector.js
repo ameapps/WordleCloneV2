@@ -4,12 +4,12 @@ export const languages = [
   { code: 'gr', name: 'Greek' }
 ];
 
-export function languageSelector(onLangChange, selectedLang = 'en') {
+export function languageSelector(onLangChange, translations) {
   const container = document.createElement('div');
   container.className = 'language-selector';
 
   const label = document.createElement('label');
-  label.textContent = 'Lingua: ';
+  label.textContent = `${translations.langs[translations.currentLang].words['LANG']}: `;
   label.setAttribute('for', 'lang-select');
 
   const select = document.createElement('select');
@@ -19,7 +19,7 @@ export function languageSelector(onLangChange, selectedLang = 'en') {
     const option = document.createElement('option');
     option.value = lang.code;
     option.textContent = lang.name;
-    if (lang.code === selectedLang) option.selected = true; 
+    if (lang.code === translations.currentLang) option.selected = true;
     select.appendChild(option);
   });
 

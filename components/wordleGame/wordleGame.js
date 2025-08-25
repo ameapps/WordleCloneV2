@@ -1,32 +1,29 @@
 import { WordleBoard } from '../wordleBoard/wordleBoard.js';
 import { Keyboard } from '../keyboard/keyboard.js';
 
-export function WordleGame(secret) {
+/**Visualizzazione tavolo di gioco */
+export function WordleGame(secret, translations) {
   const container = document.createElement('div');
-
+  //01. Creazione variabili di gioco
   let currentGuess = '';
   let currentRow = 0;
   const maxGuesses = 6;
-
-  // Board
+  //01. Creazione Board
   const board = WordleBoard(secret, maxGuesses);
   container.appendChild(board.container);
-
-  // Keyboard
+  //02. Creazione Tastiera
   const keyboard = Keyboard((key) => handleKey(key));
   container.appendChild(keyboard.container);
-
-  // Reset Button
+  //03. Creazione Reset Button
   const resetBtn = document.createElement('button');
-  resetBtn.textContent = 'Nuova Partita';
+  resetBtn.textContent = `${translations.langs[translations.currentLang].words['NEW_MATCH']}`;
   resetBtn.addEventListener('click', () => {
     container.innerHTML = '';
     const newGame = WordleGame(secret);
     container.appendChild(newGame);
   });
   container.appendChild(resetBtn);
-
-  // Listener tastiera fisica
+  //04. Listener tastiera fisica
   function keyListener(e) {
     handleKey(e.key.toUpperCase());
   }
