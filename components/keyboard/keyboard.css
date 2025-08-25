@@ -2,44 +2,44 @@
 .keyboard-row {
   display: flex;
   justify-content: center;
-  margin-bottom: 5px;
+  gap: 0.5em;
+  width: 100%;
 }
 
 .key {
+  flex: 1 1 0;
+  min-width: 2.2em;
+  max-width: 8vw;
+  padding: 0.7em 0.2em;
+  margin: 0;
+  text-align: center;
+  font-size: 1.2em;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  margin: 2px;
-  padding: 6px 5px;
-  background: #eee;
+  border-radius: 5px;
+  background: #222;
+  color: white;
   cursor: pointer;
   user-select: none;
-  font-size: 18px;
+  transition: background 0.2s, color 0.2s;
+  box-sizing: border-box;
 }
 
 .key-wide {
-  min-width: 60px;
+  flex: 1.5 1 0;
+  min-width: 3.5em;
+  max-width: 12vw;
 }
 
 .keyboard {
   margin-top: 20px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 500px;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 100%;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.key {
-  /* padding: 10px; */
-  /* margin: 3px; */
-  /* width: 40px; */
-  text-align: center;
-  cursor: pointer;
-  border-radius: 5px;
-  background: #222;
-  color: white;
-  user-select: none;
+  box-sizing: border-box;
 }
 
 .key.correct {
@@ -52,4 +52,18 @@
 
 .key.absent {
   background: #333;
+}
+
+/* Migliora la visualizzazione su schermi piccoli */
+@media (max-width: 600px) {
+  .keyboard {
+    max-width: 98vw;
+    padding: 0 1vw;
+  }
+  .key, .key-wide {
+    font-size: 1em;
+    min-width: 2em;
+    max-width: 14vw;
+    padding: 0.5em 0.1em;
+  }
 }
