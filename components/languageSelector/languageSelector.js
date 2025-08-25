@@ -1,9 +1,8 @@
 export const languages = [
-  { code: 'it', name: 'Italiano' },
   { code: 'en', name: 'English' },
+  { code: 'it', name: 'Italiano' },
   { code: 'gr', name: 'Greek' }
 ];
-
 
 export function languageSelector(onLangChange) {
   const container = document.createElement('div');
@@ -33,4 +32,22 @@ export function languageSelector(onLangChange) {
   container.appendChild(select);
 
   return container;
+}
+
+/**Funzione per l'eliminazione della tendina e della label */
+export function destroyLangSelector() {
+  try {
+    //01. Distruggo la tendina 
+    const existingSelector = document.getElementById('lang-select');
+    if (existingSelector) {
+      existingSelector.remove();
+    }
+    //02. Distruggo la label
+    const existingLabel = document.querySelector('.language-selector label');
+    if (existingLabel) {
+      existingLabel.remove();
+    }
+  } catch (error) {
+    console.error("Errore durante la distruzione della tendina e della label:", error);
+  }
 }

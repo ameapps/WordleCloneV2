@@ -1,25 +1,40 @@
 import { WordleGame } from './components/wordleGame/wordleGame.js';
 import { getSecretWord } from './services/secret-word/secretWord.js';
-import { languageSelector } from './components/languageSelector/languageSelector.js';
+import { languageSelector, destroyLangSelector } from './components/languageSelector/languageSelector.js';
 
-let currentLang = 'en'; // valore di default
+/**Variabili globali */
+let currentLang = 'en'; 
+let app = null; 
 
-function handleLangChange(lang) {
-  currentLang = lang;
-  // Puoi aggiungere qui altre azioni da eseguire al cambio lingua
-}
-
-function App() {
-  const app = document.createElement('div');
+/**Entry dell'app con costruzione GUI */
+async function App() {
+  app = document.createElement('div');
   const langSelector = languageSelector(handleLangChange);
   document.body.prepend(langSelector);
-  const currentLang = 'en'; // Imposta la lingua corrente
-  const secret = getSecretWord(currentLang) ?? 'HELLO';
+  const secret = await getSecretWord(currentLang) ?? 'HELLO';
   console.log("Parola segreta:", secret);
   const game = WordleGame(secret);
   app.appendChild(game);
   return app;
 }
 
-const root = document.getElementById('app');
-root.appendChild(App());
+/**Callback cambio lingua */
+async function handleLangChange(lang) {
+  currentLang = lang;
+  // Distruggo la tendina esistente
+  destroyLangSelector();
+  // Aggiungo la nuova tendina
+  const langSelector = languageSelector(handleLangChange);
+  document.body.prepend(langSelector);
+  const secret = await getSecretWord(currentLang) ?? 'HELLO';
+  console.log("Parola segreta:", secret);
+  const game = WordleGame(secret);
+  app.appendChild(game);
+}
+
+//Avvio app con gestione asincrona
+(async () => {
+  const root = document.getElementById('app');
+  const app = await App();
+  root.appendChild(app);
+})();
