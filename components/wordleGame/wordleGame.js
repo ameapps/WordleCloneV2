@@ -1,5 +1,5 @@
-import { WordleBoard } from './WordleBoard.js';
-import { Keyboard } from './Keyboard.js';
+import { WordleBoard } from '../wordleBoard.js';
+import { Keyboard } from '../keyboard/keyboard.js';
 
 export function WordleGame(secret) {
   const container = document.createElement('div');

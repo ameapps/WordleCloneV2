@@ -1,4 +1,4 @@
-import { WordleGame } from './components/WordleGame.js';
+import { WordleGame } from './components/wordleGame/wordleGame.js';
 
 function App() {
   const app = document.createElement('div');
