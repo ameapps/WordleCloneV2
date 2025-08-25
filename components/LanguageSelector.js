@@ -1,4 +1,4 @@
-export function LanguageSelector(languages, onChange) {
+export function languageSelector(languages, onChange) {
   const container = document.createElement('div');
   container.className = 'language-selector';
 
