@@ -11,10 +11,13 @@ let translations = null;
 
 /**Entry dell'app con costruzione GUI */
 async function App() {
-  app = document.createElement('div');
   //01. Recupero le lingue dell'app 
   translations = await getAppLangs(currentLang);
+  const title = document.getElementById('title');
+  title.textContent = translations.langs[translations.currentLang].words['TITLE'];
+  app = document.createElement('div');
   console.log("Lingue disponibili:", translations);
+  document.title = translations.langs[translations.currentLang].words['TITLE'];
   //02. Inizializzo la sessione
   const session = await initSession();
   return session;
