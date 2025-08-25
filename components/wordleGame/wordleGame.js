@@ -1,4 +1,4 @@
-import { WordleBoard } from '../wordleBoard.js';
+import { WordleBoard } from '../wordleBoard/wordleBoard.js';
 import { Keyboard } from '../keyboard/keyboard.js';
 
 export function WordleGame(secret) {
