@@ -39,8 +39,8 @@ async function initSession() {
 
 /**Callback cambio lingua */
 async function handleLangChange(lang) {
-  
-  currentLang = lang;
+
+  translations.currentLang = lang;
   // Distruggo la tendina esistente
   destroyLangSelector();
   // Aggiungo la nuova tendina
