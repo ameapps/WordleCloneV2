@@ -35,40 +35,6 @@
         background: #333;
     }
 
-    .keyboard {
-        margin-top: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .key {
-        padding: 10px;
-        margin: 3px;
-        width: 40px;
-        text-align: center;
-        cursor: pointer;
-        border-radius: 5px;
-        background: #222;
-        color: white;
-        user-select: none;
-    }
-
-    .key.correct {
-        background: green;
-    }
-
-    .key.present {
-        background: orange;
-    }
-
-    .key.absent {
-        background: #333;
-    }
-
     button {
         margin-top: 20px;
         padding: 5px 15px;

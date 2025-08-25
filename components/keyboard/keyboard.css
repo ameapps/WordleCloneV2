@@ -4,6 +4,7 @@
   justify-content: center;
   margin-bottom: 5px;
 }
+
 .key {
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -14,6 +15,41 @@
   user-select: none;
   font-size: 18px;
 }
+
 .key-wide {
   min-width: 60px;
+}
+
+.keyboard {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.key {
+  padding: 10px;
+  margin: 3px;
+  /* width: 40px; */
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #222;
+  color: white;
+  user-select: none;
+}
+
+.key.correct {
+  background: green;
+}
+
+.key.present {
+  background: orange;
+}
+
+.key.absent {
+  background: #333;
 }
