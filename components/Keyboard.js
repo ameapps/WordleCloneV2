@@ -22,7 +22,7 @@ export function Keyboard(onKeyPress){
 
   const backKey = document.createElement('div');
   backKey.className = 'key';
-  backKey.textContent = 'Backspace';
+  backKey.textContent = '←';
   backKey.addEventListener('click', () => onKeyPress('Backspace'));
   container.appendChild(backKey);
 
