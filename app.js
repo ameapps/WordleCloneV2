@@ -15,7 +15,7 @@ async function App() {
 }
 
 async function initSession() {
-  const langSelector = languageSelector(handleLangChange);
+  const langSelector = languageSelector(handleLangChange, currentLang);
   document.body.prepend(langSelector);
   const secret = await getSecretWord(currentLang) ?? 'HELLO';
   console.log("Parola segreta:", secret);

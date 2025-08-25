@@ -4,7 +4,7 @@ export const languages = [
   { code: 'gr', name: 'Greek' }
 ];
 
-export function languageSelector(onLangChange) {
+export function languageSelector(onLangChange, selectedLang = 'en') {
   const container = document.createElement('div');
   container.className = 'language-selector';
 
@@ -19,12 +19,11 @@ export function languageSelector(onLangChange) {
     const option = document.createElement('option');
     option.value = lang.code;
     option.textContent = lang.name;
+    if (lang.code === selectedLang) option.selected = true; 
     select.appendChild(option);
   });
 
   select.addEventListener('change', (e) => {
-    console.log("Lingua selezionata:", e.target.value);
-    //Esecuzione callback cambio lingua
     onLangChange(e.target.value);
   });
 
