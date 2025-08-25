@@ -35,7 +35,7 @@ export function WordleGame(secret, translations) {
     if(key?.toUpperCase() === "BACKSPACE" || key === "←"){
       currentGuess = currentGuess.slice(0,-1);
       board.updateRow(currentRow, currentGuess);
-    } else if(key === "ENTER"){
+    } else if(key?.toUpperCase() === "ENTER"){
       if(currentGuess.length === secret.length){
         board.checkGuess(currentRow, currentGuess, secret, keyboard);
         currentGuess = '';
