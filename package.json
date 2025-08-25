@@ -1,0 +1,12 @@
+{
+  "name": "vanilla-wordle",
+  "version": "1.0.0",
+  "description": "Wordle vanilla JS React-like",
+  "type": "module",
+  "scripts": {
+    "start": "serve ."
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}
