@@ -26,6 +26,12 @@ export function WordleGame(secret) {
   });
   container.appendChild(resetBtn);
 
+  // Listener tastiera fisica
+  function keyListener(e) {
+    handleKey(e.key.toUpperCase());
+  }
+  document.addEventListener('keydown', keyListener);
+
   function handleKey(key) {
     if(currentRow >= maxGuesses) return;
 
@@ -46,8 +52,16 @@ export function WordleGame(secret) {
     }
   }
 
-  // Listener tastiera fisica
-  document.addEventListener('keydown', (e) => handleKey(e.key.toUpperCase()));
+  // Funzione per rimuovere tutto dal DOM e i listener
+  function removeGame() {
+    document.removeEventListener('keydown', keyListener);
+    if (container.parentNode) {
+      container.parentNode.removeChild(container);
+    }
+  }
+
+  // Espone anche la funzione removeGame
+  container.removeGame = removeGame;
 
   return container;
 }
