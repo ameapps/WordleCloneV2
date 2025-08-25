@@ -34,7 +34,6 @@ export function WordleGame(secret) {
 
   function handleKey(key) {
     if(currentRow >= maxGuesses) return;
-    console.log('Premuto tasto:', key);
     if(key?.toUpperCase() === "BACKSPACE"){
       currentGuess = currentGuess.slice(0,-1);
       board.updateRow(currentRow, currentGuess);
