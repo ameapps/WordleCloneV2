@@ -1,0 +1,19 @@
+/* Esempio CSS */
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+.key {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 2px;
+  padding: 12px 10px;
+  background: #eee;
+  cursor: pointer;
+  user-select: none;
+  font-size: 18px;
+}
+.key-wide {
+  min-width: 60px;
+}
