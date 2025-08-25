@@ -1,8 +1,12 @@
 import { WordleGame } from './components/wordleGame/wordleGame.js';
+import { getSecretWord } from './services/secret-word/secretWord.js';
 
 function App() {
   const app = document.createElement('div');
-  const game = WordleGame("HELLO"); // parola segreta
+  const currentLang = 'en'; // Imposta la lingua corrente
+  const secret = getSecretWord(currentLang) ?? 'HELLO';
+  console.log("Parola segreta:", secret);
+  const game = WordleGame(secret);
   app.appendChild(game);
   return app;
 }
