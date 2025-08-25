@@ -1,14 +1,8 @@
 import { WordleGame } from './components/wordleGame/wordleGame.js';
 import { getSecretWord } from './services/secret-word/secretWord.js';
-import { languageSelector } from './components/languageSelector.js';
+import { languageSelector } from './components/languageSelector/languageSelector.js';
 
 let currentLang = 'en'; // valore di default
-
-const languages = [
-  { code: 'it', name: 'Italiano' },
-  { code: 'en', name: 'English' },
-  { code: 'gr', name: 'Greek' }
-];
 
 function handleLangChange(lang) {
   currentLang = lang;
@@ -17,7 +11,7 @@ function handleLangChange(lang) {
 
 function App() {
   const app = document.createElement('div');
-  const langSelector = languageSelector(languages, handleLangChange);
+  const langSelector = languageSelector(handleLangChange);
   document.body.prepend(langSelector);
   const currentLang = 'en'; // Imposta la lingua corrente
   const secret = getSecretWord(currentLang) ?? 'HELLO';
