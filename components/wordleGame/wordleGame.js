@@ -34,11 +34,11 @@ export function WordleGame(secret) {
 
   function handleKey(key) {
     if(currentRow >= maxGuesses) return;
-
-    if(key === "Backspace"){
+    console.log('Premuto tasto:', key);
+    if(key?.toUpperCase() === "BACKSPACE"){
       currentGuess = currentGuess.slice(0,-1);
       board.updateRow(currentRow, currentGuess);
-    } else if(key === "Enter"){
+    } else if(key === "ENTER"){
       if(currentGuess.length === secret.length){
         board.checkGuess(currentRow, currentGuess, secret, keyboard);
         currentGuess = '';
