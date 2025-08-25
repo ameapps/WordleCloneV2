@@ -12,14 +12,14 @@ export function WordleGame(secret, translations) {
   const board = WordleBoard(secret, maxGuesses);
   container.appendChild(board.container);
   //02. Creazione Tastiera
-  const keyboard = Keyboard((key) => handleKey(key));
+  const keyboard = Keyboard((key) => handleKey(key), translations.currentLang);
   container.appendChild(keyboard.container);
   //03. Creazione Reset Button
   const resetBtn = document.createElement('button');
   resetBtn.textContent = `${translations.langs[translations.currentLang].words['NEW_MATCH']}`;
   resetBtn.addEventListener('click', () => {
     container.innerHTML = '';
-    const newGame = WordleGame(secret);
+    const newGame = WordleGame(secret, translations);
     container.appendChild(newGame);
   });
   container.appendChild(resetBtn);
@@ -31,7 +31,8 @@ export function WordleGame(secret, translations) {
 
   function handleKey(key) {
     if(currentRow >= maxGuesses) return;
-    if(key?.toUpperCase() === "BACKSPACE"){
+    // Qui puoi aggiungere un controllo per lettere greche se serve
+    if(key?.toUpperCase() === "BACKSPACE" || key === "←"){
       currentGuess = currentGuess.slice(0,-1);
       board.updateRow(currentRow, currentGuess);
     } else if(key === "ENTER"){
@@ -40,7 +41,10 @@ export function WordleGame(secret, translations) {
         currentGuess = '';
         currentRow++;
       }
-    } else if(key.length === 1 && /[A-Z]/.test(key)){
+    } else if(key.length === 1 && (
+      (translations.currentLang === 'gr' && /[Α-ΩΪΫά-ώϊϋΐΰ]/i.test(key)) ||
+      (translations.currentLang !== 'gr' && /[A-Z]/.test(key))
+    )){
       if(currentGuess.length < secret.length){
         currentGuess += key;
         board.updateRow(currentRow, currentGuess);

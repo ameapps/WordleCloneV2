@@ -1,21 +1,33 @@
-export function Keyboard(onKeyPress){
+export function Keyboard(onKeyPress, lang = 'en') {
   const container = document.createElement('div');
   container.className = 'keyboard';
 
-  // Definisci le righe della tastiera
-  const rows = [
-    "QWERTYUIOP".split(''),
-    "ASDFGHJKL".split(''),
-    "ZXCVBNM".split('')
-  ];
+  // Mappature tastiere per lingua
+  const layouts = {
+    en: [
+      "QWERTYUIOP".split(''),
+      "ASDFGHJKL".split(''),
+      "ZXCVBNM".split('')
+    ],
+    it: [
+      "QWERTYUIOP".split(''),
+      "ASDFGHJKL".split(''),
+      "ZXCVBNM".split('')
+    ],
+    gr: [
+      "ΩΕΡΤΥΘΙΟΠ".split(''),
+      "ΑΣΔΦΓΗΞΚΛ".split(''),
+      "ΖΧΨΩΒΝΜ".split('')
+    ]
+  };
 
+  const rows = layouts[lang] || layouts['en'];
   const keyElements = {};
 
   rows.forEach((row, rowIndex) => {
     const rowDiv = document.createElement('div');
     rowDiv.className = 'keyboard-row';
 
-    // Terza riga: aggiungi Enter prima e Backspace dopo i tasti
     if(rowIndex === 2){
       const enterKey = document.createElement('div');
       enterKey.className = 'key key-wide';

@@ -28,7 +28,7 @@ async function initSession() {
   const langSelector = languageSelector(handleLangChange, translations);
   document.body.prepend(langSelector);
   //02. Recupero la parola segreta
-  const secret = await getSecretWord(currentLang) ?? 'HELLO';
+  const secret = await getSecretWord(translations.currentLang) ?? 'HELLO';
   console.log("Parola segreta:", secret);
   if (game != null) game.removeGame();
   //03. Recupero la parola
