@@ -39,7 +39,7 @@ export function WordleGame(secret, translations) {
       if(currentGuess.length === secret.length){
         board.checkGuess(currentRow, currentGuess, secret, keyboard);
         if(currentGuess.toUpperCase() === secret.toUpperCase()) {
-          alert('HAI INDOVINATO LA PAROLA!');
+          showCongrats();
         }
         currentRow++;
         // Se ha finito i tentativi e NON ha indovinato
@@ -62,6 +62,22 @@ export function WordleGame(secret, translations) {
         board.updateRow(currentRow, currentGuess);
       }
     }
+  }
+
+  function showCongrats() {
+    const colors = ['#FFD700', '#FF69B4', '#00CFFF', '#ADFF2F', '#FF6347', '#FF8C00', '#8A2BE2'];
+    const congratsContainer = document.createElement('div');
+    congratsContainer.className = 'congrats-container';
+    for (let i = 0; i < 80; i++) {
+      const conf = document.createElement('div');
+      conf.className = 'congrats';
+      conf.style.left = Math.random() * 100 + 'vw';
+      conf.style.background = colors[Math.floor(Math.random() * colors.length)];
+      conf.style.animationDelay = (Math.random() * 0.7) + 's';
+      congratsContainer.appendChild(conf);
+    }
+    document.body.appendChild(congratsContainer);
+    setTimeout(() => congratsContainer.remove(), 2200);
   }
 
   // Funzione per rimuovere tutto dal DOM e i listener

@@ -1,41 +1,71 @@
-    body {
-        font-family: sans-serif;
-        background: #121213;
-        color: white;
-        text-align: center;
+body {
+    font-family: sans-serif;
+    background: #121213;
+    color: white;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #555;
+    margin: 2px;
+    font-size: 24px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.correct {
+    background: green;
+}
+
+.present {
+    background: orange;
+}
+
+.absent {
+    background: #333;
+}
+
+button {
+    margin-top: 20px;
+    padding: 5px 15px;
+}
+
+.congrats-container {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.congrats {
+    position: absolute;
+    width: 12px;
+    height: 18px;
+    opacity: 0.8;
+    border-radius: 3px;
+    animation: congrats-fall 1.8s linear forwards;
+}
+
+@keyframes congrats-fall {
+    0% {
+        transform: translateY(-40px) rotate(0deg);
     }
 
-    .row {
-        display: flex;
-        justify-content: center;
-        margin: 5px 0;
+    100% {
+        transform: translateY(100vh) rotate(360deg);
     }
-
-    .cell {
-        width: 40px;
-        height: 40px;
-        border: 2px solid #555;
-        margin: 2px;
-        font-size: 24px;
-        text-transform: uppercase;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .correct {
-        background: green;
-    }
-
-    .present {
-        background: orange;
-    }
-
-    .absent {
-        background: #333;
-    }
-
-    button {
-        margin-top: 20px;
-        padding: 5px 15px;
-    }
+}
