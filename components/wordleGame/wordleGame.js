@@ -38,6 +38,9 @@ export function WordleGame(secret, translations) {
     } else if(key?.toUpperCase() === "ENTER"){
       if(currentGuess.length === secret.length){
         board.checkGuess(currentRow, currentGuess, secret, keyboard);
+        if(currentGuess.toUpperCase() === secret.toUpperCase()) {
+          alert('HAI INDOVINATO LA PAROLA!');
+        }
         currentGuess = '';
         currentRow++;
       }
