@@ -31,7 +31,7 @@ export function Keyboard(onKeyPress, lang = 'en') {
     if(rowIndex === 2){
       const enterKey = document.createElement('div');
       enterKey.className = 'key key-wide';
-      enterKey.textContent = 'Enter';
+      enterKey.textContent = '↵';
       enterKey.addEventListener('click', () => onKeyPress('Enter'));
       rowDiv.appendChild(enterKey);
     }
