@@ -41,8 +41,17 @@ export function WordleGame(secret, translations) {
         if(currentGuess.toUpperCase() === secret.toUpperCase()) {
           alert('HAI INDOVINATO LA PAROLA!');
         }
-        currentGuess = '';
         currentRow++;
+        // Se ha finito i tentativi e NON ha indovinato
+        if(currentRow === maxGuesses && currentGuess.toUpperCase() !== secret.toUpperCase()) {
+          const reveal = document.createElement('div');
+          reveal.style.marginTop = '1em';
+          reveal.style.fontWeight = 'bold';
+          reveal.textContent = `${translations.langs[translations.currentLang].words['LOSE']}`;
+          reveal.textContent = reveal.textContent.replace('**solution**', `${secret}`);
+          container.appendChild(reveal);
+        }
+        currentGuess = '';
       }
     } else if(key.length === 1 && (
       (translations.currentLang === 'gr' && /[Α-ΩΪΫά-ώϊϋΐΰ]/i.test(key)) ||

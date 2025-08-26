@@ -4,6 +4,6 @@
     "NEW_MATCH": "New Match",
     "LANG": "Language",
     "WIN": "🎉 Congratulations! You guessed it!",
-    "LOSE": "❌ You lost. The word was: solution",
+    "LOSE": "❌ You lost. The word was: **solution**",
     "NOTFOUND": "❌ Word not in English dictionary."
 }

@@ -4,6 +4,6 @@
     "NEW_MATCH": "Nuova Partita",
     "LANG": "Lingua",
     "WIN": "🎉 Complimenti! Hai indovinato!",
-    "LOSE": "❌ Hai perso. La parola era: soluzione",
+    "LOSE": "❌ Hai perso. La parola era: **solution**",
     "NOTFOUND": "❌ Parola non presente nel dizionario italiano."
 }
